@@ -1,23 +1,25 @@
-import { Header } from "./componentes/layout/header";
-import { Footer } from "./componentes/layout/footer";
-import { Navbar } from "./componentes/layout/navbar";
-import { MovieService } from "./cases/services/movie.service";
-import { MovieContent } from "./cases/components/movie-content";
-import { Highlight } from "./componentes/layout/highligth";
+import { MovieContent } from "./cases/movies/components/movie-content";
+import { Footer } from "./components/layout/footer";
+import { Header } from "./components/layout/header";
+import { NavBar } from "./components/layout/navbar";
+import { Highlight } from "./components/layout/highlight"; 
+import { MovieContextProvider } from "./cases/movies/context/movie-context";
 
 function App() {
+
   return (
     <>
       <Header />
       <main>
-        <Highlight />
-
-        <Navbar />
-        <MovieContent />
+        <MovieContextProvider>
+        <Highlight/>
+        <NavBar/>
+        <MovieContent/>
+        </MovieContextProvider>
       </main>
       <Footer />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
